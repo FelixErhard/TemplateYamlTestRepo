@@ -1,0 +1,36 @@
+name: example-groups-template
+display_name: "Gruppenarbeit Template"
+description: "Demonstriert User-Picker und Group-Builder"
+version: "1.0.0"
+category: examples
+
+terraform:
+  working_dir: terraform/
+
+parameters:
+  - name: admin_email
+    type: string
+    description: "Dozent mit Sudo-Rechten"
+    required: true
+    x-ui:
+      widget: user-picker
+      multi: false
+      extract: email
+      group: Allgemein
+      order: 1
+      placeholder: "Dozent auswählen..."
+
+  - name: student_groups
+    type: groups
+    description: "Projektgruppen der Studierenden"
+    required: true
+    x-ui:
+      widget: group-builder
+      extract: email
+      group: Gruppen
+      order: 1
+
+outputs:
+  - name: instance_ip
+    description: "IP-Adresse der VM"
+    display: true
