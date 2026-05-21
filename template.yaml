@@ -9,12 +9,12 @@ terraform:
 
 parameters:
   - name: admin_email
-    type: string
+    type: array
     description: "Dozent mit Sudo-Rechten"
     required: true
     x-ui:
       widget: user-picker
-      multi: false
+      multi: True
       extract: email
       group: Allgemein
       order: 1
